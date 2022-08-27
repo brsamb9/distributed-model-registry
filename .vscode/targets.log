@@ -1,0 +1,2127 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+for dir in actors; do \
+	make -C $dir all REG_SERVER=localhost:5000; \
+done
+ 
+# make[1]: Entering directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors'
+for dir in blobstore ui model_registry api; do \
+	make -C $dir all REG_SERVER=localhost:5000; \
+done
+ 
+# make[2]: Entering directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors/blobstore'
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Sat Aug 27 10:43:48 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 5)
+REVISION = 0
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/brs/wasmcloud_tests/distributed-model-registry/actors/blobstore
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
+# environment
+STARSHIP_SESSION_KEY = 1749441718337234
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# makefile (from 'Makefile', line 4)
+VERSION = $(shell cargo metadata --no-deps --format-version 1 | jq -r '.packages[] .version' | head -1)
+# makefile (from 'actor.mk', line 38)
+WASM_TARGET = wasm32-unknown-unknown
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/brs/.local/bin:/home/brs/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Ben Sambells/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from 'Makefile', line 3)
+PROJECT = blobstore
+# makefile (from 'actor.mk', line 1)
+MAKEFILE_LIST :=  Makefile actor.mk
+# makefile (from 'Makefile', line 7)
+CLAIMS = wasmcloud:builtin:logging wasmcloud:blobstore
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-eeca76e4-3cec-49c1-9ca7-a9e4f5cd4a8d.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# makefile (from 'actor.mk', line 40)
+UNSIGNED_WASM = $(TARGET_DIR)/$(WASM_TARGET)/release/$(PROJECT).wasm
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+PWD = /home/brs/wasmcloud_tests/distributed-model-registry/actors
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# makefile (from 'actor.mk', line 43)
+check-var-defined = $(if $(strip $($1)),,$(error Required variable "$1" is not defined))
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/brs
+# makefile (from 'Makefile', line 11)
+PUSH_REG_CMD = wash reg push --insecure $(REG_URL)
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# makefile (from 'actor.mk', line 37)
+DIST_WASM = build/$(PROJECT)_s.wasm
+# automatic
+-*-command-variables-*- := REG_SERVER=localhost:5000
+# makefile (from 'actor.mk', line 33)
+WASH = wash
+# environment
+LOGNAME = brs
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 2
+# default
+MAKE = $(MAKE_COMMAND)
+# makefile (from 'Makefile', line 9)
+REG_URL = localhost:5000/v2/$(PROJECT):$(VERSION)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKEOVERRIDES = ${-*-command-variables-*-}
+# makefile (from 'actor.mk', line 31)
+KEYDIR = .keys
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = brs
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = pc
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Sambells/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile (from 'Makefile', line 14)
+ACTOR_NAME = "blobstore"
+# makefile (from 'actor.mk', line 32)
+CARGO = cargo
+# makefile
+MAKEFLAGS = pqrRw -- $(MAKEOVERRIDES)
+# environment
+MFLAGS = -pqrRw
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# makefile (from 'actor.mk', line 35)
+TARGET_DIR = target
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# command line
+REG_SERVER = localhost:5000
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+STARSHIP_SHELL = bash
+# variable set hash-table stats:
+# Load=87/1024=8%, Rehash=0, Collisions=12/181=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 46650): 14 files, no impossibilities.
+
+# 14 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+build/blobstore_s.wasm: target/wasm32-unknown-unknown/release/blobstore.wasm Makefile
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-25 23:11:18.377622989
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  recipe to execute (from 'actor.mk', line 57):
+	@mkdir -p $(dir $@)
+	$(WASH) claims sign $< \
+		$(foreach claim,$(CLAIMS), -c $(claim) ) \
+		--name $(ACTOR_NAME) --ver $(VERSION) --rev $(REVISION) \
+		$(if $(ACTOR_ALIAS),--call-alias $(ACTOR_ALIAS)) \
+		--destination $@
+
+all:: build/blobstore_s.wasm
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.PHONY: actor_id check clean clippy doc release test update .FORCE
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_actor_id: build/blobstore_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 124):
+	@$(WASH) claims inspect $(DIST_WASM) -o json | jq -r .module
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push: build/blobstore_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 78):
+	$(PUSH_REG_CMD) $(DIST_WASM)
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 23:10:36.074623997
+#  File has been updated.
+#  Successfully updated.
+
+start:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 82):
+	$(WASH) ctl start actor $(REG_URL) --timeout-ms 3000
+
+update:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+validate::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	cargo clippy --all-features --all-targets
+
+clippy:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+target-path:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 66):
+	@echo $(DIST_WASM)
+
+release::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 108):
+	cargo build --release
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+claims: build/blobstore_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 120):
+	$(WASH) claims inspect $(DIST_WASM)
+
+clean::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 116):
+	$(CARGO) clean
+	rm -rf build
+
+target-path-abs:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 68):
+	@echo $(abspath $(DIST_WASM))
+
+target/wasm32-unknown-unknown/release/blobstore.wasm: .FORCE
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-08-25 22:56:15.018359991
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := target/wasm32-unknown-unknown/release/blobstore.wasm
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := .FORCE
+# automatic
+# | := 
+# automatic
+# < := .FORCE
+# automatic
+# ^ := .FORCE
+# automatic
+# ? := .FORCE
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/12=17%
+#  recipe to execute (from 'actor.mk', line 74):
+	$(CARGO) build --release
+
+lint::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+inventory:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 94):
+	$(WASH) ctl get inventory $(shell $(WASH) ctl get hosts -o json | jq -r ".hosts[0].id")
+
+# Not a target:
+actor.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:33:19.014061989
+#  File has been updated.
+#  Successfully updated.
+
+check:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+inspect: build/blobstore_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 120):
+	$(WASH) claims inspect $(DIST_WASM)
+
+target-file:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 70):
+	@echo $(notdir $(DIST_WASM))
+
+doc:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+actor_id:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 127):
+	@echo $(shell make --silent _actor_id 2>/dev/null | tail -1)
+
+.FORCE:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=28/1024=3%, Rehash=0, Collisions=0/66=0%
+# VPATH Search Paths
+
+ 
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 43 / storage = 410 B / avg = 9 B
+# current buf: size = 8162 B / used = 410 B / count = 43 / avg = 9 B
+
+# strcache performance: lookups = 87 / hit rate = 50%
+# hash-table stats:
+# Load=43/8192=1%, Rehash=0, Collisions=1/87=1%
+# Finished Make data base on Sat Aug 27 10:43:48 2022
+
+# make[2]: Leaving directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors/blobstore'
+ 
+# make[2]: Entering directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors/ui'
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sat Aug 27 10:43:48 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# makefile (from 'Makefile', line 5)
+REVISION = 0
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/brs/wasmcloud_tests/distributed-model-registry/actors/ui
+# makefile
+SHELL = /bin/sh
+ 
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
+# environment
+STARSHIP_SESSION_KEY = 1749441718337234
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# makefile (from 'Makefile', line 4)
+VERSION = $(shell cargo metadata --no-deps --format-version 1 | jq -r '.packages[] .version' | head -1)
+# makefile (from 'actor.mk', line 38)
+WASM_TARGET = wasm32-unknown-unknown
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/brs/.local/bin:/home/brs/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Ben Sambells/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from 'Makefile', line 3)
+PROJECT = ui
+# makefile (from 'actor.mk', line 1)
+MAKEFILE_LIST :=  Makefile actor.mk
+# makefile (from 'Makefile', line 7)
+CLAIMS = wasmcloud:httpserver wasmcloud:builtin:logging
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-eeca76e4-3cec-49c1-9ca7-a9e4f5cd4a8d.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# makefile (from 'actor.mk', line 40)
+UNSIGNED_WASM = $(TARGET_DIR)/$(WASM_TARGET)/release/$(PROJECT).wasm
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+PWD = /home/brs/wasmcloud_tests/distributed-model-registry/actors
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# makefile (from 'actor.mk', line 43)
+check-var-defined = $(if $(strip $($1)),,$(error Required variable "$1" is not defined))
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/brs
+# makefile (from 'Makefile', line 11)
+PUSH_REG_CMD = wash reg push --insecure $(REG_URL)
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# makefile (from 'actor.mk', line 37)
+DIST_WASM = build/$(PROJECT)_s.wasm
+# automatic
+-*-command-variables-*- := REG_SERVER=localhost:5000
+# makefile (from 'actor.mk', line 33)
+WASH = wash
+# environment
+LOGNAME = brs
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 2
+# default
+MAKE = $(MAKE_COMMAND)
+# makefile (from 'Makefile', line 9)
+REG_URL = localhost:5000/v2/$(PROJECT):$(VERSION)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKEOVERRIDES = ${-*-command-variables-*-}
+# makefile (from 'actor.mk', line 31)
+KEYDIR = .keys
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = brs
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = pc
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Sambells/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile (from 'Makefile', line 14)
+ACTOR_NAME = "ui"
+# makefile (from 'actor.mk', line 32)
+CARGO = cargo
+# makefile
+MAKEFLAGS = pqrRw -- $(MAKEOVERRIDES)
+# environment
+MFLAGS = -pqrRw
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# makefile (from 'actor.mk', line 35)
+TARGET_DIR = target
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# command line
+REG_SERVER = localhost:5000
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+STARSHIP_SHELL = bash
+# variable set hash-table stats:
+# Load=87/1024=8%, Rehash=0, Collisions=12/181=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 49804): 11 files, no impossibilities.
+
+# 11 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+all:: build/ui_s.wasm
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.PHONY: actor_id check clean clippy doc release test update .FORCE
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_actor_id: build/ui_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 124):
+	@$(WASH) claims inspect $(DIST_WASM) -o json | jq -r .module
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push: build/ui_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 78):
+	$(PUSH_REG_CMD) $(DIST_WASM)
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-19 08:50:38.932844833
+#  File has been updated.
+#  Successfully updated.
+
+start:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 82):
+	$(WASH) ctl start actor $(REG_URL) --timeout-ms 3000
+
+update:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+validate::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	cargo clippy --all-features --all-targets
+
+clippy:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+target-path:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 66):
+	@echo $(DIST_WASM)
+
+release::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 108):
+	cargo build --release
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+target/wasm32-unknown-unknown/release/ui.wasm: .FORCE
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+ 
+# @ := target/wasm32-unknown-unknown/release/ui.wasm
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := .FORCE
+# automatic
+# | := 
+# automatic
+# < := .FORCE
+# automatic
+# ^ := .FORCE
+# automatic
+# ? := .FORCE
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/12=17%
+#  recipe to execute (from 'actor.mk', line 74):
+	$(CARGO) build --release
+
+claims: build/ui_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 120):
+	$(WASH) claims inspect $(DIST_WASM)
+
+clean::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 116):
+	$(CARGO) clean
+	rm -rf build
+
+target-path-abs:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 68):
+	@echo $(abspath $(DIST_WASM))
+
+build/ui_s.wasm: target/wasm32-unknown-unknown/release/ui.wasm Makefile
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  recipe to execute (from 'actor.mk', line 57):
+	@mkdir -p $(dir $@)
+	$(WASH) claims sign $< \
+		$(foreach claim,$(CLAIMS), -c $(claim) ) \
+		--name $(ACTOR_NAME) --ver $(VERSION) --rev $(REVISION) \
+		$(if $(ACTOR_ALIAS),--call-alias $(ACTOR_ALIAS)) \
+		--destination $@
+
+lint::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+inventory:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 94):
+	$(WASH) ctl get inventory $(shell $(WASH) ctl get hosts -o json | jq -r ".hosts[0].id")
+
+# Not a target:
+actor.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-18 22:29:46.443605466
+#  File has been updated.
+#  Successfully updated.
+
+check:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+inspect: build/ui_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 120):
+	$(WASH) claims inspect $(DIST_WASM)
+
+target-file:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 70):
+	@echo $(notdir $(DIST_WASM))
+
+doc:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+actor_id:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 127):
+	@echo $(shell make --silent _actor_id 2>/dev/null | tail -1)
+
+.FORCE:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=28/1024=3%, Rehash=0, Collisions=0/66=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 40 / storage = 370 B / avg = 9 B
+# current buf: size = 8162 B / used = 370 B / count = 40 / avg = 9 B
+
+# strcache performance: lookups = 84 / hit rate = 52%
+# hash-table stats:
+# Load=40/8192=0%, Rehash=0, Collisions=1/84=1%
+# Finished Make data base on Sat Aug 27 10:43:48 2022
+
+# make[2]: Leaving directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors/ui'
+ 
+# make[2]: Entering directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors'
+ 
+make[2]: *** model_registry: No such file or directory.  Stop.
+
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sat Aug 27 10:43:48 2022
+
+# Variables
+
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# environment
+SHELL = /bin/bash
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
+# environment
+STARSHIP_SESSION_KEY = 1749441718337234
+# environment
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code
+# environment
+PATH = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/brs/.local/bin:/home/brs/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Ben Sambells/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-eeca76e4-3cec-49c1-9ca7-a9e4f5cd4a8d.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# environment
+DISPLAY = :0
+# environment
+PWD = /home/brs/wasmcloud_tests/distributed-model-registry/actors
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/brs
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+-*-command-variables-*- := REG_SERVER=localhost:5000
+# environment
+LOGNAME = brs
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environment
+MAKELEVEL = 2
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKEOVERRIDES = ${-*-command-variables-*-}
+# environment
+USER = brs
+# environment
+NAME = pc
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Sambells/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# environment
+MAKEFLAGS = pqrRw -- REG_SERVER=localhost:5000
+# environment
+MFLAGS = -pqrRw
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.RECIPEPREFIX := 
+# command line
+REG_SERVER = localhost:5000
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+STARSHIP_SHELL = bash
+# variable set hash-table stats:
+ 
+# Load=50/1024=5%, Rehash=0, Collisions=3/57=5%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+
+# No files, no impossibilities in 0 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+# Not a target:
+all:
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=1/1024=0%, Rehash=0, Collisions=0/1=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 2 / storage = 19 B / avg = 9 B
+# current buf: size = 8162 B / used = 19 B / count = 2 / avg = 9 B
+
+# strcache performance: lookups = 3 / hit rate = 33%
+# hash-table stats:
+# Load=2/8192=0%, Rehash=0, Collisions=0/3=0%
+# Finished Make data base on Sat Aug 27 10:43:48 2022
+
+# make[2]: Leaving directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors'
+ 
+# make[2]: Entering directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors/api'
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sat Aug 27 10:43:49 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+ 
+# makefile (from 'Makefile', line 5)
+REVISION = 0
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/brs/wasmcloud_tests/distributed-model-registry/actors/api
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
+# environment
+STARSHIP_SESSION_KEY = 1749441718337234
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# makefile (from 'Makefile', line 4)
+VERSION = $(shell cargo metadata --no-deps --format-version 1 | jq -r '.packages[] .version' | head -1)
+# makefile (from 'actor.mk', line 38)
+WASM_TARGET = wasm32-unknown-unknown
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/brs/.local/bin:/home/brs/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Ben Sambells/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from 'Makefile', line 3)
+PROJECT = api
+# makefile (from 'actor.mk', line 1)
+MAKEFILE_LIST :=  Makefile actor.mk
+# makefile (from 'Makefile', line 7)
+CLAIMS = wasmcloud:httpserver wasmcloud:builtin:logging
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-eeca76e4-3cec-49c1-9ca7-a9e4f5cd4a8d.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# makefile (from 'actor.mk', line 40)
+UNSIGNED_WASM = $(TARGET_DIR)/$(WASM_TARGET)/release/$(PROJECT).wasm
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+PWD = /home/brs/wasmcloud_tests/distributed-model-registry/actors
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# makefile (from 'actor.mk', line 43)
+check-var-defined = $(if $(strip $($1)),,$(error Required variable "$1" is not defined))
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/brs
+# makefile (from 'Makefile', line 11)
+PUSH_REG_CMD = wash reg push --insecure $(REG_URL)
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# makefile (from 'actor.mk', line 37)
+DIST_WASM = build/$(PROJECT)_s.wasm
+# automatic
+-*-command-variables-*- := REG_SERVER=localhost:5000
+# makefile (from 'actor.mk', line 33)
+WASH = wash
+# environment
+LOGNAME = brs
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 2
+# default
+MAKE = $(MAKE_COMMAND)
+# makefile (from 'Makefile', line 9)
+REG_URL = localhost:5000/v2/$(PROJECT):$(VERSION)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKEOVERRIDES = ${-*-command-variables-*-}
+# makefile (from 'actor.mk', line 31)
+KEYDIR = .keys
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = brs
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = pc
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Sambells/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile (from 'Makefile', line 14)
+ACTOR_NAME = "api"
+# makefile (from 'actor.mk', line 32)
+CARGO = cargo
+# makefile
+MAKEFLAGS = pqrRw -- $(MAKEOVERRIDES)
+# environment
+MFLAGS = -pqrRw
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# makefile (from 'actor.mk', line 35)
+TARGET_DIR = target
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# command line
+REG_SERVER = localhost:5000
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+STARSHIP_SHELL = bash
+# variable set hash-table stats:
+# Load=87/1024=8%, Rehash=0, Collisions=12/181=7%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 148401): 14 files, no impossibilities.
+
+# 14 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+build/api_s.wasm: target/wasm32-unknown-unknown/release/api.wasm Makefile
+#  Implicit rule search has not been done.
+#  Last modified 2022-08-25 23:08:10.710570994
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  recipe to execute (from 'actor.mk', line 57):
+	@mkdir -p $(dir $@)
+	$(WASH) claims sign $< \
+		$(foreach claim,$(CLAIMS), -c $(claim) ) \
+		--name $(ACTOR_NAME) --ver $(VERSION) --rev $(REVISION) \
+		$(if $(ACTOR_ALIAS),--call-alias $(ACTOR_ALIAS)) \
+		--destination $@
+
+all:: build/api_s.wasm
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+
+.PHONY: actor_id check clean clippy doc release test update .FORCE
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+_actor_id: build/api_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 124):
+	@$(WASH) claims inspect $(DIST_WASM) -o json | jq -r .module
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+push: build/api_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 78):
+	$(PUSH_REG_CMD) $(DIST_WASM)
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:55:38.606368995
+#  File has been updated.
+#  Successfully updated.
+
+start:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 82):
+	$(WASH) ctl start actor $(REG_URL) --timeout-ms 3000
+
+update:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+validate::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 21):
+	cargo clippy --all-features --all-targets
+
+clippy:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+target-path:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 66):
+	@echo $(DIST_WASM)
+
+release::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 108):
+	cargo build --release
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+claims: build/api_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 120):
+	$(WASH) claims inspect $(DIST_WASM)
+
+clean::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 116):
+	$(CARGO) clean
+	rm -rf build
+
+target-path-abs:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 68):
+	@echo $(abspath $(DIST_WASM))
+
+lint::
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+inventory:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 94):
+	$(WASH) ctl get inventory $(shell $(WASH) ctl get hosts -o json | jq -r ".hosts[0].id")
+
+target/wasm32-unknown-unknown/release/api.wasm: .FORCE
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2022-08-25 23:08:10.620570994
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := target/wasm32-unknown-unknown/release/api.wasm
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := .FORCE
+# automatic
+# | := 
+# automatic
+# < := .FORCE
+# automatic
+# ^ := .FORCE
+# automatic
+# ? := .FORCE
+# variable set hash-table stats:
+ 
+# Load=8/32=25%, Rehash=0, Collisions=2/12=17%
+#  recipe to execute (from 'actor.mk', line 74):
+	$(CARGO) build --release
+
+# Not a target:
+actor.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-25 22:22:14.003582992
+#  File has been updated.
+#  Successfully updated.
+
+check:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+inspect: build/api_s.wasm
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 120):
+	$(WASH) claims inspect $(DIST_WASM)
+
+target-file:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 70):
+	@echo $(notdir $(DIST_WASM))
+
+doc:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 112):
+	$(CARGO) $@
+
+actor_id:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'actor.mk', line 127):
+	@echo $(shell make --silent _actor_id 2>/dev/null | tail -1)
+
+.FORCE:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=28/1024=3%, Rehash=0, Collisions=0/66=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 43 / storage = 392 B / avg = 9 B
+# current buf: size = 8162 B / used = 392 B / count = 43 / avg = 9 B
+
+# strcache performance: lookups = 87 / hit rate = 50%
+# hash-table stats:
+# Load=43/8192=1%, Rehash=0, Collisions=1/87=1%
+# Finished Make data base on Sat Aug 27 10:43:49 2022
+
+# make[2]: Leaving directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors/api'
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sat Aug 27 10:43:49 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/brs/wasmcloud_tests/distributed-model-registry/actors
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
+# environment
+STARSHIP_SESSION_KEY = 1749441718337234
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/brs/.local/bin:/home/brs/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Ben Sambells/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# makefile (from '../build/makefiles/common.mk', line 1)
+top_targets = all clean test lint validate
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from '../build/makefiles/common.mk', line 1)
+MAKEFILE_LIST :=  Makefile ../build/makefiles/common.mk
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-eeca76e4-3cec-49c1-9ca7-a9e4f5cd4a8d.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+PWD = /home/brs/wasmcloud_tests/distributed-model-registry
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/brs
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# automatic
+-*-command-variables-*- := REG_SERVER=localhost:5000
+# environment
+LOGNAME = brs
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 1
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# environment
+MAKEOVERRIDES = ${-*-command-variables-*-}
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = brs
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = pc
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Sambells/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrRw -- $(MAKEOVERRIDES)
+# environment
+MFLAGS = -pqrRw
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# command line
+REG_SERVER = localhost:5000
+# environment
+LANG = C
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+STARSHIP_SHELL = bash
+# makefile (from 'Makefile', line 1)
+subdirs = blobstore ui model_registry api
+# variable set hash-table stats:
+# Load=74/1024=7%, Rehash=0, Collisions=10/117=9%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 48266): 7 files, no impossibilities.
+
+# 7 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+.ONESHELL:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all::
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/18=11%
+#  recipe to execute (from '../build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+.PHONY: all clean test lint validate
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-19 08:38:55.892847014
+#  File has been updated.
+#  Successfully updated.
+
+validate::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from '../build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+test::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from '../build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from '../build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+lint::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from '../build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+# Not a target:
+../build/makefiles/common.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-18 22:48:52.453601912
+ 
+#  File has been updated.
+#  Successfully updated.
+
+# files hash-table stats:
+# Load=11/1024=1%, Rehash=0, Collisions=0/35=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 20 / storage = 179 B / avg = 8 B
+# current buf: size = 8162 B / used = 179 B / count = 20 / avg = 8 B
+
+# strcache performance: lookups = 39 / hit rate = 48%
+# hash-table stats:
+# Load=20/8192=0%, Rehash=0, Collisions=1/39=3%
+# Finished Make data base on Sat Aug 27 10:43:49 2022
+
+# make[1]: Leaving directory '/home/brs/wasmcloud_tests/distributed-model-registry/actors'
+ 
+# GNU Make 4.2.1
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2016 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+ 
+
+# Make data base, printed on Sat Aug 27 10:43:49 2022
+
+# Variables
+
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# automatic
+?F = $(notdir $?)
+# environment
+WSLENV = VSCODE_WSL_EXT_LOCATION/up
+# default
+.SHELLFLAGS := -c
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# automatic
+@F = $(notdir $@)
+# makefile
+CURDIR := /home/brs/wasmcloud_tests/distributed-model-registry
+# makefile
+SHELL = /bin/sh
+# environment
+VSCODE_NLS_CONFIG = {"locale":"en","availableLanguages":{}}
+# environment
+_ = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/node
+# environment
+STARSHIP_SESSION_KEY = 1749441718337234
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+XDG_DATA_DIRS = /usr/local/share:/usr/share:/var/lib/snapd/desktop
+# environment
+LESSOPEN = | /usr/bin/lesspipe %s
+# environment
+VSCODE_CWD = /mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+PATH = /home/brs/.vscode-server/bin/e4503b30fc78200f846c62cf8091b76ff5547662/bin/remote-cli:/home/brs/.local/bin:/home/brs/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/Ben Sambells/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/Ben Sambells/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin
+# makefile (from 'build/makefiles/common.mk', line 1)
+top_targets = all clean test lint validate
+# environment
+XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
+# makefile (from 'build/makefiles/common.mk', line 1)
+MAKEFILE_LIST :=  Makefile build/makefiles/common.mk
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-eeca76e4-3cec-49c1-9ca7-a9e4f5cd4a8d.sock
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
+# automatic
+%F = $(notdir $%)
+# environment
+DISPLAY = :0
+# environment
+PWD = /home/brs/wasmcloud_tests/distributed-model-registry
+# default
+.LOADED := 
+# environment
+WSL_INTEROP = /run/WSL/11_interop
+# environment
+PULSE_SERVER = /mnt/wslg/PulseServer
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/brs
+# environment
+LESSCLOSE = /usr/bin/lesspipe %s %s
+# environment
+LOGNAME = brs
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# default
+MAKECMDGOALS := all
+# environment
+SHLVL = 0
+# default
+MAKE_VERSION := 4.2.1
+# environment
+USER = brs
+# makefile
+.DEFAULT_GOAL := all
+# environment
+NAME = pc
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+VSCODE_WSL_EXT_LOCATION = /mnt/c/Users/Ben Sambells/.vscode/extensions/ms-vscode-remote.remote-wsl-0.66.3
+# default
+MAKE_COMMAND := make
+# default
+.VARIABLES := 
+# automatic
+*F = $(notdir $*)
+# makefile
+MAKEFLAGS = pqrR
+# environment
+MFLAGS = -pqrR
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# automatic
++F = $(notdir $+)
+# environment
+VSCODE_HANDLES_SIGPIPE = true
+# default
+MAKEFILES := 
+# automatic
+<F = $(notdir $<)
+# environment
+LC_ALL = C
+# environment
+HOSTTYPE = x86_64
+# automatic
+^F = $(notdir $^)
+# default
+SUFFIXES := 
+# environment
+WAYLAND_DISPLAY = wayland-0
+# default
+.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
+# default
+.RECIPEPREFIX := 
+# makefile (from 'build/makefiles/common.mk', line 3)
+REG_SERVER = localhost:5000
+# environment
+LANG = C
+ 
+# environment
+TERM = xterm-256color
+# environment
+WSL_DISTRO_NAME = Ubuntu
+# environment
+STARSHIP_SHELL = bash
+# makefile (from 'Makefile', line 1)
+subdirs = actors
+# variable set hash-table stats:
+# Load=72/1024=7%, Rehash=0, Collisions=9/110=8%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 2080, inode 19325): 10 files, no impossibilities.
+
+# 10 files, no impossibilities in 1 directories.
+
+# Implicit Rules
+
+# No implicit rules.
+
+# Files
+
+.ONESHELL:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all::
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := all
+# automatic
+# % := 
+# automatic
+# * := 
+# automatic
+# + := 
+# automatic
+# | := 
+# automatic
+# < := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/16=12%
+#  recipe to execute (from 'build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+.PHONY: all clean test lint validate
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-19 08:38:52.142847025
+#  File has been updated.
+#  Successfully updated.
+
+validate::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+test::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+clean::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+# Not a target:
+build/makefiles/common.mk:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-18 22:48:52.453601912
+#  File has been updated.
+#  Successfully updated.
+
+lint::
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'build/makefiles/common.mk', line 8):
+	for dir in $(subdirs); do \
+		$(MAKE) -C $$dir $@ REG_SERVER=$(REG_SERVER); \
+	done
+
+# files hash-table stats:
+# Load=11/1024=1%, Rehash=0, Collisions=0/35=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 22 / storage = 205 B / avg = 9 B
+ 
+# current buf: size = 8162 B / used = 205 B / count = 22 / avg = 9 B
+
+# strcache performance: lookups = 41 / hit rate = 46%
+# hash-table stats:
+# Load=22/8192=0%, Rehash=0, Collisions=1/41=2%
+# Finished Make data base on Sat Aug 27 10:43:49 2022
+
+ 

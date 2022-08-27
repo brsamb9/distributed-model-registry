@@ -1,0 +1,9 @@
+{
+    "rust-analyzer.linkedProjects": [
+      "actors/api/Cargo.toml",
+      "actors/blobstore/Cargo.toml",
+      "actors/ui/Cargo.toml",
+      "actors/model-registry/Cargo.toml",
+      "model-registry-interface/rust/Cargo.toml",
+    ]
+  }
